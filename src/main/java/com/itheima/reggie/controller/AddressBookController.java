@@ -35,6 +35,13 @@ public class AddressBookController {
         addressBookService.save(addressBook);
         return R.success(addressBook);
     }
+    @PutMapping
+    public R<AddressBook> Putsave(@RequestBody AddressBook addressBook) {
+        addressBook.setUserId(BaseContext.getCurrentId());
+        log.info("addressBook:{}", addressBook);
+        addressBookService.save(addressBook);
+        return R.success(addressBook);
+    }
 
     /**
      * 设置默认地址
